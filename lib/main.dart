@@ -35,10 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.redAccent[100], title: Text(widget.title)),
-        body: Padding(
-          padding: const EdgeInsets.all(50),
-          child: Image.network(
-              'https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png'),
-        ));
+        body: 
+          Padding(
+            padding: const EdgeInsets.all(50),
+            child: Image.network(
+                'https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png'),
+          )
+        );
   }
 }
