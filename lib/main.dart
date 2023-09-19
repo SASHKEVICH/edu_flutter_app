@@ -34,12 +34,59 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.redAccent[100], title: Text(widget.title)),
+            backgroundColor: Colors.redAccent[100], 
+            title: Text(widget.title)
+          ),
         body: 
-          Padding(
-            padding: const EdgeInsets.all(50),
-            child: Image.network(
-                'https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png'),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(150),
+                child: Image.network(
+                    'https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png'),
+              ),
+              Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  Container(
+                    width: 300, 
+                    height: 300, 
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 250,
+                    height: 250,
+                    color: Colors.orange,
+                  ),
+                    Container(
+                    width: 200,
+                    height: 200,
+                    color: Colors.yellow,
+                  ),
+                    Container(
+                    width: 150,
+                    height: 150,
+                    color: Colors.green,
+                  ),
+                    Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.lightBlue,
+                  ),
+                    Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.blue,
+                  ),
+                    Container(
+                    width: 25,
+                    height: 25,
+                    color: Colors.purple,
+                  ),
+                ],
+              )
+            ],
           )
         );
   }
