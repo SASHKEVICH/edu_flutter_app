@@ -1,14 +1,9 @@
 import 'package:edu_flutter_app/widgets/name_app_bar.dart';
 import 'package:flutter/material.dart';
 
-class CalculatorScreen extends StatefulWidget {
-  const CalculatorScreen({super.key});
-  
-  @override
-  State<StatefulWidget> createState() => _CalculatorScreenState();
-}
+class CalculatorScreen extends StatelessWidget {
+  CalculatorScreen({super.key});
 
-class _CalculatorScreenState extends State<CalculatorScreen> {
   final _weightFieldController = TextEditingController();
   final _speedFieldController = TextEditingController();
 
