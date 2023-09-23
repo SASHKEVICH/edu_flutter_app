@@ -1,3 +1,4 @@
+import 'package:edu_flutter_app/scenes/calculation_results_screen/calculation_results_screen.dart';
 import 'package:edu_flutter_app/widgets/name_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -74,8 +75,12 @@ class CalculatorScreen extends StatelessWidget {
               ),
               child: const Text(_Constants.calculateButtonTitle),
               onPressed: () {
-                print(_weightFieldController.text);
-                print(_speedFieldController.text);
+                var weight = _weightFieldController.text;
+                var speed = _speedFieldController.text;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CalculationResultsScreen(weight: weight, speed: speed))
+                );
               },
             ),
           ]
