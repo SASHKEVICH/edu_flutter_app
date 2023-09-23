@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:edu_flutter_app/scenes/calculation_results_screen/calculation_results_screen.dart';
 import 'package:edu_flutter_app/widgets/name_app_bar.dart';
-import 'package:flutter/material.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
@@ -28,7 +29,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
           crossAxisAlignment: CrossAxisAlignment.center, 
           children: [
             const Text(_Constants.screenTitle),
-            _Constants.defualtSpacing,
+            _Constants.defaultSpacing,
             Form(
               key: _formKey,
               child: Column(
@@ -50,7 +51,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                       _dismissKeyboard(context, event);
                     },
                   ),
-                  _Constants.defualtSpacing,
+                  _Constants.defaultSpacing,
                   TextFormField(
                     keyboardType: TextInputType.text,
                     controller: _speedFieldController,
@@ -69,7 +70,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                       _dismissKeyboard(context, event);
                     },
                   ),
-                  _Constants.defualtSpacing,
+                  _Constants.defaultSpacing,
                   CheckboxListTile(
                     value: _isUserAgreementAccepted, 
                     title: const Text(_Constants.userAgreementText),
@@ -78,7 +79,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                 ],
               )
             ),
-            _Constants.defualtSpacing,
+            _Constants.defaultSpacing,
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.redAccent[100], // Background color
@@ -128,5 +129,5 @@ class _Constants {
 
   static const String calculateButtonTitle = "Посчитать";
 
-  static const SizedBox defualtSpacing = SizedBox(height: 50,);
+  static const SizedBox defaultSpacing = SizedBox(height: 50,);
 }
