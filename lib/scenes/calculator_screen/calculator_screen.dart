@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 
 class CalculatorScreen extends StatelessWidget {
   CalculatorScreen({super.key});
+  final _formKey = GlobalKey<FormState>();
 
   final _weightFieldController = TextEditingController();
   final _speedFieldController = TextEditingController();
+
+  bool _isUserAgreementAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,7 @@ class CalculatorScreen extends StatelessWidget {
             const Text(_Constants.screenTitle),
             _Constants.defualtSpacing,
             Form(
+              key: _formKey,
               child: Column(
                 children: [
                   TextFormField(
@@ -32,12 +36,10 @@ class CalculatorScreen extends StatelessWidget {
                     validator: (newWeight) {
                       if (newWeight == null) { return ''; }
 
-                      var weight = int.parse(newWeight);
-                      if (weight < 0) {
+                      var weight = double.tryParse(newWeight);
+                      if (weight == null || weight < 0) {
                         return _Constants.weightValidatingErrorText;
                       }
-
-                      return null;
                     },
                     onTapOutside: (event) {
                       _dismissKeyboard(context, event);
@@ -53,17 +55,20 @@ class CalculatorScreen extends StatelessWidget {
                     validator: (newSpeed) {
                       if (newSpeed == null) { return ''; }
 
-                      var speed = int.parse(newSpeed);
-                      if (speed < 0) {
+                      var speed = double.tryParse(newSpeed);
+                      if (speed == null || speed < 0) {
                         return _Constants.speedValidatingErrorText;
                       }
-
-                      return null;
                     },
                     onTapOutside: (event) {
                       _dismissKeyboard(context, event);
                     },
                   ),
+                  _Constants.defualtSpacing,
+                  CheckboxListTile(
+                    value: _isUserAgreementAccepted, 
+                    title: const Text(_Constants.userAgreementText),
+                    onChanged: (value) => setState(() => _isUserAgreementAccepted = value!)
                 ],
               )
             ),
@@ -73,15 +78,8 @@ class CalculatorScreen extends StatelessWidget {
                 backgroundColor: Colors.redAccent[100], // Background color
                 foregroundColor: Colors.black
               ),
+              onPressed: _onCalculateButtonPressed,
               child: const Text(_Constants.calculateButtonTitle),
-              onPressed: () {
-                var weight = _weightFieldController.text;
-                var speed = _speedFieldController.text;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CalculationResultsScreen(weight: weight, speed: speed))
-                );
-              },
             ),
           ]
         ),
@@ -95,14 +93,29 @@ class CalculatorScreen extends StatelessWidget {
       FocusManager.instance.primaryFocus?.unfocus();
     }
   }
+
+  void _onCalculateButtonPressed() {
+    var isFormValid = _formKey.currentState?.validate();
+    if ((isFormValid != null && isFormValid == false) || _isUserAgreementAccepted == false) { return; }
+
+    var weight = _weightFieldController.text;
+    var speed = _speedFieldController.text;
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CalculationResultsScreen(weight: weight, speed: speed))
+    );
+  }
 }
 
 class _Constants {
   static const String screenTitle = "Калькулятор кинетической энергии";
   static const EdgeInsets screenPaddingInsets = EdgeInsets.all(30);
 
-  static const String weightValidatingErrorText = "Введите положительное число";
-  static const String speedValidatingErrorText = "Введите положительное число";
+  static const String userAgreementText = 'Согласие на обработку персональных данных';
+
+  static const String weightValidatingErrorText = "Введите корректное число";
+  static const String speedValidatingErrorText = "Введите корректное число";
 
   static const String weightInputDecorationText = "Введите массу тела";
   static const String speedInputDecorationText = "Введите скорость тела";
