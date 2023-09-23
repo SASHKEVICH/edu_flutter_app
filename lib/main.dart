@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:edu_flutter_app/scenes/calculator_screen/calculator_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,79 +17,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Бекренев Александр Алексеевич'),
+      home: const MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.redAccent[100], 
-            title: Text(widget.title)
-          ),
-        body: 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(150),
-                child: Image.network(
-                    'https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png'),
-              ),
-              Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  Container(
-                    width: 300, 
-                    height: 300, 
-                    color: Colors.red,
-                  ),
-                  Container(
-                    width: 250,
-                    height: 250,
-                    color: Colors.orange,
-                  ),
-                    Container(
-                    width: 200,
-                    height: 200,
-                    color: Colors.yellow,
-                  ),
-                    Container(
-                    width: 150,
-                    height: 150,
-                    color: Colors.green,
-                  ),
-                    Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.lightBlue,
-                  ),
-                    Container(
-                    width: 50,
-                    height: 50,
-                    color: Colors.blue,
-                  ),
-                    Container(
-                    width: 25,
-                    height: 25,
-                    color: Colors.purple,
-                  ),
-                ],
-              )
-            ],
-          )
-        );
+    return const Scaffold(body: CalculatorScreen());
   }
 }
