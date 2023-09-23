@@ -2,8 +2,14 @@ import 'package:edu_flutter_app/scenes/calculation_results_screen/calculation_re
 import 'package:edu_flutter_app/widgets/name_app_bar.dart';
 import 'package:flutter/material.dart';
 
-class CalculatorScreen extends StatelessWidget {
-  CalculatorScreen({super.key});
+class CalculatorScreen extends StatefulWidget {
+  const CalculatorScreen({super.key});
+  
+  @override
+  State<StatefulWidget> createState() => CalculatorScreenState();
+}
+
+class CalculatorScreenState extends State<CalculatorScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final _weightFieldController = TextEditingController();
@@ -28,7 +34,6 @@ class CalculatorScreen extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
-                    keyboardType: TextInputType.number,
                     controller: _weightFieldController,
                     decoration: const InputDecoration(
                       hintText: _Constants.weightInputDecorationText
@@ -47,7 +52,7 @@ class CalculatorScreen extends StatelessWidget {
                   ),
                   _Constants.defualtSpacing,
                   TextFormField(
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.text,
                     controller: _speedFieldController,
                     decoration: const InputDecoration(
                       hintText: _Constants.speedInputDecorationText
@@ -69,6 +74,7 @@ class CalculatorScreen extends StatelessWidget {
                     value: _isUserAgreementAccepted, 
                     title: const Text(_Constants.userAgreementText),
                     onChanged: (value) => setState(() => _isUserAgreementAccepted = value!)
+                  )
                 ],
               )
             ),
