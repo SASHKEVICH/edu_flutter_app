@@ -1,16 +1,17 @@
+import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
 import 'package:flutter/material.dart';
 
-import 'package:edu_flutter_app/scenes/calculation_results_screen/calculation_results_screen.dart';
 import 'package:edu_flutter_app/widgets/name_app_bar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CalculatorScreen extends StatefulWidget {
-  const CalculatorScreen({super.key});
+class CalculatorInputScreen extends StatefulWidget {
+  const CalculatorInputScreen({super.key});
   
   @override
-  State<StatefulWidget> createState() => CalculatorScreenState();
+  State<StatefulWidget> createState() => CalculatorInputScreenState();
 }
 
-class CalculatorScreenState extends State<CalculatorScreen> {
+class CalculatorInputScreenState extends State<CalculatorInputScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final _weightFieldController = TextEditingController();
@@ -21,7 +22,6 @@ class CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NameAppBar(),
       body: Container(
         padding: _Constants.screenPaddingInsets,
         alignment: Alignment.center,
@@ -46,6 +46,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                       if (weight == null || weight < 0) {
                         return _Constants.weightValidatingErrorText;
                       }
+                      return null;
                     },
                     onTapOutside: (event) {
                       _dismissKeyboard(context, event);
@@ -65,6 +66,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                       if (speed == null || speed < 0) {
                         return _Constants.speedValidatingErrorText;
                       }
+                      return null;
                     },
                     onTapOutside: (event) {
                       _dismissKeyboard(context, event);
@@ -108,10 +110,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
     var weight = _weightFieldController.text;
     var speed = _speedFieldController.text;
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CalculationResultsScreen(weight: weight, speed: speed))
-    );
+    BlocProvider.of<CalculatorScreenCubit>(context).setKineticEnergyResult(weight, speed);
   }
 }
 

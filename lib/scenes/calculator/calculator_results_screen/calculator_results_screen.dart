@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 
-import 'package:edu_flutter_app/domain/kinetic_calculator_service.dart';
 import 'package:edu_flutter_app/widgets/name_app_bar.dart';
 
-class CalculationResultsScreen extends StatefulWidget {
-  const CalculationResultsScreen({super.key, required this.weight, required this.speed});
+class CalculatorResultsScreen extends StatefulWidget {
+  const CalculatorResultsScreen({super.key, required this.energyResult});
 
-  final String weight;
-  final String speed;
+  final double energyResult;
   
   @override
-  State<StatefulWidget> createState() => _CalculationResultsScreenState();
+  State<StatefulWidget> createState() => _CalculatorResultsScreenState();
 }
 
-class _CalculationResultsScreenState extends State<CalculationResultsScreen> {
-  final KineticCalculatorService _kineticService = KineticCalculatorService();
-
+class _CalculatorResultsScreenState extends State<CalculatorResultsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NameAppBar(),
       body: Container(
         padding: _Constants.screenPaddingInsets,
         alignment: Alignment.center,
@@ -28,15 +23,11 @@ class _CalculationResultsScreenState extends State<CalculationResultsScreen> {
           children: [
             const Text(_Constants.screenTitle),
             _Constants.defaultSpacing,
-            Text("${_Constants.resultsDescription} ${_getKineticEnergyResult()}, ${_Constants.formulaText}"),
+            Text("${_Constants.resultsDescription} ${widget.energyResult}, ${_Constants.formulaText}"),
           ]
         ),
       )
     );
-  }
-
-  double _getKineticEnergyResult() {
-    return _kineticService.calculate(widget.weight, widget.speed) ?? 0;
   }
 }
 
