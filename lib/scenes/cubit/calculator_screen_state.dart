@@ -1,11 +1,11 @@
 abstract class CalculatorScreenState {}
 
-class CalculatorScreenInputState extends CalculatorScreenState {
+class InputState extends CalculatorScreenState {
   final String? weight;
   final String? speed;
   final bool doesUserAgreementAccepted;
 
-  CalculatorScreenInputState({required this.weight, required this.speed, required this.doesUserAgreementAccepted});
+  InputState({required this.weight, required this.speed, required this.doesUserAgreementAccepted});
 }
 
 class CalculatorScreenResultsState extends CalculatorScreenState {
