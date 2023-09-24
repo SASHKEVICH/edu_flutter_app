@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:edu_flutter_app/widgets/name_app_bar.dart';
-
 class CalculatorResultsScreen extends StatefulWidget {
   const CalculatorResultsScreen({super.key, required this.energyResult});
 

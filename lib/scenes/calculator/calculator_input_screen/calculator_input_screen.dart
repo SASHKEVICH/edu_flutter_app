@@ -1,7 +1,6 @@
-import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
 import 'package:flutter/material.dart';
 
-import 'package:edu_flutter_app/widgets/name_app_bar.dart';
+import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CalculatorInputScreen extends StatefulWidget {
