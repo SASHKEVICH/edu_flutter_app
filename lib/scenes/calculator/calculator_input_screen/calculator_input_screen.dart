@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:edu_flutter_app/main.dart';
 
 enum _FieldType {
   weight,
@@ -26,6 +27,14 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(_Constants.appBarTitle),
+        backgroundColor: Colors.redAccent[100],
+        leading: IconButton(
+          icon: const Icon(Icons.question_mark),
+          onPressed: _onHistoryButtonPressed,
+        ),
+      ),
       body: Container(
         padding: _Constants.screenPaddingInsets,
         alignment: Alignment.center,
@@ -114,9 +123,14 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
 
     BlocProvider.of<CalculatorScreenCubit>(context).setKineticEnergyResult(weight, speed);
   }
+
+  void _onHistoryButtonPressed() {
+    Navigator.pushNamed(context, Routes.calculatorHistoryScreenRoute);
+  }
 }
 
 class _Constants {
+  static const String appBarTitle = 'Бекренев А.А.';
   static const String screenTitle = "Калькулятор кинетической энергии";
   static const EdgeInsets screenPaddingInsets = EdgeInsets.all(30);
 

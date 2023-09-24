@@ -13,6 +13,10 @@ class _CalculatorResultsScreenState extends State<CalculatorResultsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(_Constants.appBarTitle),
+        backgroundColor: Colors.redAccent[100],
+      ),
       body: Container(
         padding: _Constants.screenPaddingInsets,
         alignment: Alignment.center,
@@ -30,6 +34,8 @@ class _CalculatorResultsScreenState extends State<CalculatorResultsScreen> {
 }
 
 class _Constants {
+  static const String appBarTitle = 'Бекренев А.А.';
+
   static const EdgeInsets screenPaddingInsets = EdgeInsets.all(30);
 
   static const String screenTitle = 'Результат';
