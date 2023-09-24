@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+enum _FieldType {
+  weight,
+  speed
+}
+
 class CalculatorInputScreen extends StatefulWidget {
   const CalculatorInputScreen({super.key});
   
@@ -38,15 +43,7 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
                     decoration: const InputDecoration(
                       hintText: _Constants.weightInputDecorationText
                     ),
-                    validator: (newWeight) {
-                      if (newWeight == null) { return ''; }
-
-                      var weight = double.tryParse(newWeight);
-                      if (weight == null || weight < 0) {
-                        return _Constants.weightValidatingErrorText;
-                      }
-                      return null;
-                    },
+                    validator: (newWeight) => _validateField(newWeight, _FieldType.weight),
                     onTapOutside: (event) {
                       _dismissKeyboard(context, event);
                     },
@@ -58,15 +55,7 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
                     decoration: const InputDecoration(
                       hintText: _Constants.speedInputDecorationText
                     ),
-                    validator: (newSpeed) {
-                      if (newSpeed == null) { return ''; }
-
-                      var speed = double.tryParse(newSpeed);
-                      if (speed == null || speed < 0) {
-                        return _Constants.speedValidatingErrorText;
-                      }
-                      return null;
-                    },
+                    validator: (newSpeed) => _validateField(newSpeed, _FieldType.speed),
                     onTapOutside: (event) {
                       _dismissKeyboard(context, event);
                     },
@@ -93,6 +82,20 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
         ),
       )
     );
+  }
+
+  String? _validateField(String? value, _FieldType fieldType) {
+    if (value == null) { return ''; }
+    
+    var parsedValue = double.tryParse(value);
+    if (parsedValue == null || parsedValue < 0) {
+      switch (fieldType) {
+        case _FieldType.weight: return _Constants.weightValidatingErrorText;
+        case _FieldType.speed: return _Constants.speedValidatingErrorText;
+      }
+    }
+
+    return null;
   }
 
   void _dismissKeyboard(BuildContext context, PointerDownEvent event) {
