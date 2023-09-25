@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'package:edu_flutter_app/domain/models/calculation_history.dart';
+import 'package:edu_flutter_app/domain/models/calculation_history_record.dart';
 
 class DBService {
   static Database? _database;
@@ -18,7 +18,7 @@ class DBService {
     return _database!;
   }
 
-  Future<void> addCalculationHistoryRecord(CalculationHistory record) async {
+  Future<void> addCalculationHistoryRecord(CalculationHistoryRecord record) async {
     Database db = await database;
 
     var newRecord = {
@@ -29,12 +29,12 @@ class DBService {
     await db.insert(_databaseName, newRecord);
   }
 
-  Future<List<CalculationHistory>> getAllCalculationHistoryRecords() async {
+  Future<List<CalculationHistoryRecord>> getAllCalculationHistoryRecords() async {
     Database db = await database;
     final List<Map<String, dynamic>> data = await db.query(_databaseName);
 
     return List.generate(data.length, (index) {
-      return CalculationHistory(
+      return CalculationHistoryRecord(
         weight: data[index]['weight'], 
         speed: data[index]['speed'], 
         kineticEnergy: data[index]['kinetic_energy']
