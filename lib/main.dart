@@ -1,3 +1,5 @@
+import 'package:edu_flutter_app/scenes/calculator_history/calculator_history_page.dart';
+import 'package:edu_flutter_app/scenes/calculator_history/cubit/calculator_history_screen_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,20 +26,29 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        Routes.initialRoute: (context) => _getCalculatorPageBlocProvider(),
-        Routes.calculatorHistoryScreenRoute: (context) => const CalculatorHistoryScreen()
+        Routes.initialRoute: (context) => _getCalculatorPage(),
+        Routes.calculatorHistoryScreenRoute: (context) => _getCalculatorHistoryPage()
       },
       initialRoute: Routes.initialRoute,
     );
   }
 
-  Widget _getCalculatorPageBlocProvider() {
+  Widget _getCalculatorPage() {
     return BlocProvider<CalculatorScreenCubit>(
       create: (context) => CalculatorScreenCubit(
         kineticService: _di.getKineticCalculatorService()
       ),
       child: const CalculatorPage(),
     ); 
+  }
+
+  Widget _getCalculatorHistoryPage() {
+    return BlocProvider<CalculatorHistoryScreenCubit>(
+      create: (context) => CalculatorHistoryScreenCubit(
+        dbService: _di.getDbService()
+      ),
+      child: const CalculatorHistoryPage()
+    );
   }
 }
 

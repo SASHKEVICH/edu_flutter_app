@@ -1,7 +1,10 @@
+import 'package:edu_flutter_app/domain/models/calculation_history_record.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorHistoryScreen extends StatefulWidget {
-  const CalculatorHistoryScreen({super.key});
+  const CalculatorHistoryScreen({super.key, required this.records});
+
+  final List<CalculationHistoryRecord> records;
 
   @override
   State<StatefulWidget> createState() => _CalculatorHistoryScreenState();
