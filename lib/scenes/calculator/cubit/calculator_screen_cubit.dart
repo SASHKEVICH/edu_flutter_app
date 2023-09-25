@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:edu_flutter_app/domain/kinetic_calculator/kinetic_calculator_service.dart';
-import 'package:edu_flutter_app/scenes/cubit/calculator_screen_state.dart';
+import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_state.dart';
 
 class CalculatorScreenCubit extends Cubit<CalculatorScreenState> {
   CalculatorScreenCubit({required this.kineticService}) 

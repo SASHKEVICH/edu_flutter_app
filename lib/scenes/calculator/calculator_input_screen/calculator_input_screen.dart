@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
+import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_cubit.dart';
 import 'package:edu_flutter_app/main.dart';
 
 enum _FieldType {

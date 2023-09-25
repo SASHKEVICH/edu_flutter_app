@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:edu_flutter_app/scenes/cubit/calculator_screen_cubit.dart';
-import 'package:edu_flutter_app/scenes/cubit/calculator_screen_state.dart';
+import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_cubit.dart';
+import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_state.dart';
 import 'package:edu_flutter_app/scenes/calculator/calculator_input_screen/calculator_input_screen.dart';
 import 'package:edu_flutter_app/scenes/calculator/calculator_results_screen/calculator_results_screen.dart';
 

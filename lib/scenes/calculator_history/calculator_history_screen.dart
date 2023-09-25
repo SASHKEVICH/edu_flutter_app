@@ -13,6 +13,7 @@ class _CalculatorHistoryScreenState extends State<CalculatorHistoryScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("История"),
+         backgroundColor: Colors.redAccent[100],
       ),
     );
   }
