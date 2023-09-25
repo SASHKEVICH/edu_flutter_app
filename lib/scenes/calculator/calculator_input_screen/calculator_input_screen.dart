@@ -31,7 +31,7 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
         title: const Text(_Constants.appBarTitle),
         backgroundColor: Colors.redAccent[100],
         leading: IconButton(
-          icon: const Icon(Icons.question_mark),
+          icon: const Icon(Icons.history),
           onPressed: _onHistoryButtonPressed,
         ),
       ),
@@ -144,5 +144,5 @@ class _Constants {
 
   static const String calculateButtonTitle = "Посчитать";
 
-  static const SizedBox defaultSpacing = SizedBox(height: 50,);
+  static const SizedBox defaultSpacing = SizedBox(height: 30,);
 }
