@@ -34,7 +34,7 @@ class DBService {
     final List<Map<String, dynamic>> data = await db.query(_databaseName);
 
     return List.generate(data.length, (index) {
-      return CalculationHistoryRecord(
+      return (
         weight: data[index]['weight'], 
         speed: data[index]['speed'], 
         kineticEnergy: data[index]['kinetic_energy']

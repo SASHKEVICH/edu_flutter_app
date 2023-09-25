@@ -3,14 +3,7 @@ import 'package:edu_flutter_app/domain/kinetic_calculator/kinetic_calculator.dar
 class KineticCalculatorService {
   final KineticCalculator _calculator = KineticCalculator.shared;
 
-  double? calculate(String weight, String speed) {
-    var parsedWeight = double.tryParse(weight);
-    var parsedSpeed = double.tryParse(speed);
-
-    if (parsedWeight == null || parsedSpeed == null) {
-      return null;
-    }
-
-    return _calculator.calculate(parsedWeight, parsedSpeed);
+  double calculate(double weight, double speed) {
+    return _calculator.calculate(weight, speed);
   }
 }
