@@ -1,12 +1,11 @@
-import 'package:edu_flutter_app/scenes/calculator_history/calculator_history_page.dart';
-import 'package:edu_flutter_app/scenes/calculator_history/cubit/calculator_history_screen_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:edu_flutter_app/domain/di.dart';
-import 'package:edu_flutter_app/scenes/calculator_history/calculator_history_screen.dart';
 import 'package:edu_flutter_app/scenes/calculator/calculator_page.dart';
 import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_cubit.dart';
+import 'package:edu_flutter_app/scenes/calculator_history/calculator_history_page.dart';
+import 'package:edu_flutter_app/scenes/calculator_history/cubit/calculator_history_screen_cubit.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +35,8 @@ class MyApp extends StatelessWidget {
   Widget _getCalculatorPage() {
     return BlocProvider<CalculatorScreenCubit>(
       create: (context) => CalculatorScreenCubit(
-        kineticService: _di.getKineticCalculatorService()
+        kineticService: _di.getKineticCalculatorService(),
+        dbService: _di.getDbService()
       ),
       child: const CalculatorPage(),
     ); 

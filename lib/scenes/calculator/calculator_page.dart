@@ -6,7 +6,6 @@ import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_state.
 import 'package:edu_flutter_app/scenes/calculator/calculator_input_screen/calculator_input_screen.dart';
 import 'package:edu_flutter_app/scenes/calculator/calculator_results_screen/calculator_results_screen.dart';
 
-
 class CalculatorPage extends StatefulWidget {
   const CalculatorPage({super.key});
 
