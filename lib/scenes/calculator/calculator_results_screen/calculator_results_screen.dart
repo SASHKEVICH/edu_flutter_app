@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_cubit.dart';
 
 class CalculatorResultsScreen extends StatefulWidget {
   const CalculatorResultsScreen({super.key, required this.energyResult});
@@ -16,6 +19,10 @@ class _CalculatorResultsScreenState extends State<CalculatorResultsScreen> {
       appBar: AppBar(
         title: const Text(_Constants.appBarTitle),
         backgroundColor: Colors.redAccent[100],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: _onBackButtonPressed,
+        ),
       ),
       body: Container(
         padding: _Constants.screenPaddingInsets,
@@ -30,6 +37,10 @@ class _CalculatorResultsScreenState extends State<CalculatorResultsScreen> {
         ),
       )
     );
+  }
+
+  void _onBackButtonPressed() {
+    BlocProvider.of<CalculatorScreenCubit>(context).setInputState();
   }
 }
 

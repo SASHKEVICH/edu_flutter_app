@@ -16,6 +16,10 @@ class CalculatorScreenCubit extends Cubit<CalculatorScreenState> {
   final KineticCalculatorService kineticService;
   final DBService dbService;
 
+  void setInputState() {
+    emit(InputState(weight: null, speed: null, doesUserAgreementAccepted: false));
+  }
+
   void setKineticEnergyResult(String weight, String speed) async {
     var input = CalculationInputFactory.make(weight, speed);
 
