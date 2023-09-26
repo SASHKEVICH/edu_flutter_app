@@ -1,5 +1,6 @@
 import 'package:edu_flutter_app/domain/models/nasa/nasa_photo.dart';
 import 'package:edu_flutter_app/scenes/nasa_photos/cubit/nasa_photos_screen_cubit.dart';
+import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photo_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,8 +41,9 @@ class _NasaPhotosScreenState extends State<NasaPhotosScreen> {
             );
           }
 
-          return ListTile(
-            title: Text(item.earthDate ?? ''),
+          return Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: NasaPhotoListItem(photoItem: item,)
           );
         }
       ),
