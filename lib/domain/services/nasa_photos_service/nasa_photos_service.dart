@@ -1,7 +1,7 @@
 import 'package:edu_flutter_app/domain/models/nasa/nasa_photo.dart';
 import 'package:edu_flutter_app/domain/requests/nasa_request.dart';
 
-class NasaPhotoService {
+class NasaPhotosService {
   int _page = 1;
 
   Future<List<NasaPhoto>> getNasaPhotoNextPage() async {
@@ -14,7 +14,7 @@ class NasaPhotoService {
       });
 
       _page++;
-      
+
       return nasaPhotos;
     } catch (e) {
       rethrow;
