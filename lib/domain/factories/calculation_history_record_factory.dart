@@ -1,4 +1,4 @@
-import 'package:edu_flutter_app/domain/models/calculation_history_record.dart';
+import 'package:edu_flutter_app/domain/models/calculator/calculation_history_record.dart';
 
 class CaclulationHistoryRecordFactory {
   static CalculationHistoryRecord make(double weight, double speed, double kineticEnergy) {

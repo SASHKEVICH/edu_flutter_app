@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:edu_flutter_app/domain/services/kinetic_calculator_service/kinetic_calculator_service.dart';
 import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_state.dart';
-import 'package:edu_flutter_app/domain/database/db_service.dart';
+import 'package:edu_flutter_app/domain/DAL/database/db_service.dart';
 import 'package:edu_flutter_app/domain/factories/calculation_history_record_factory.dart';
 import 'package:edu_flutter_app/domain/factories/calculation_input_factory.dart';
 

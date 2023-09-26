@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'package:edu_flutter_app/domain/models/calculation_history_record.dart';
+import 'package:edu_flutter_app/domain/models/calculator/calculation_history_record.dart';
 
 class DBService {
   static Database? _database;

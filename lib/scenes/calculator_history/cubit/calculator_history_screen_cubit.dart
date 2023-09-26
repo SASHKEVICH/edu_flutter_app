@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:edu_flutter_app/domain/database/db_service.dart';
+import 'package:edu_flutter_app/domain/DAL/database/db_service.dart';
 import 'package:edu_flutter_app/scenes/calculator_history/cubit/calculator_history_screen_state.dart';
 
 class CalculatorHistoryScreenCubit extends Cubit<CalculatorHistoryScreenState> {

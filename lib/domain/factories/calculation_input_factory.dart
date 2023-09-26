@@ -1,4 +1,4 @@
-import 'package:edu_flutter_app/domain/models/calculation_input.dart';
+import 'package:edu_flutter_app/domain/models/calculator/calculation_input.dart';
 
 class CalculationInputFactory {
   static CalculationInput? make(String weight, String speed) {
