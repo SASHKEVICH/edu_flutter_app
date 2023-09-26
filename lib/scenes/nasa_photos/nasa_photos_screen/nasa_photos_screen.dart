@@ -1,3 +1,4 @@
+import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photos_details_screen/nasa_photos_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,6 +56,11 @@ class _NasaPhotosScreenState extends State<NasaPhotosScreen> {
   }
 
   void _didTapListItem(int index) {
-    print(index);
+    var item = widget.photos[index];
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NasaPhotosDetailsScreen(photo: item))
+    );
   }
 }
