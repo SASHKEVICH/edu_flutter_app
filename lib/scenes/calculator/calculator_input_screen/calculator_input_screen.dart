@@ -34,6 +34,12 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
           icon: const Icon(Icons.history),
           onPressed: _onHistoryButtonPressed,
         ),
+        actions: [
+          IconButton(
+            onPressed: _onNasaPhotosButtonPressed, 
+            icon: const Icon(Icons.language)
+          )
+        ],
       ),
       body: Container(
         padding: _Constants.screenPaddingInsets,
@@ -126,6 +132,10 @@ class CalculatorInputScreenState extends State<CalculatorInputScreen> {
 
   void _onHistoryButtonPressed() {
     Navigator.pushNamed(context, Routes.calculatorHistoryScreenRoute);
+  }
+
+  void _onNasaPhotosButtonPressed() {
+    Navigator.pushNamed(context, Routes.nasaPhotosScreenRoute);
   }
 }
 

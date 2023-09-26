@@ -1,3 +1,5 @@
+import 'package:edu_flutter_app/scenes/nasa_photos/cubit/nasa_photos_screen_cubit.dart';
+import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photos_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -28,7 +30,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         Routes.initialRoute: (context) => _getCalculatorPage(),
-        Routes.calculatorHistoryScreenRoute: (context) => _getCalculatorHistoryPage()
+        Routes.calculatorHistoryScreenRoute: (context) => _getCalculatorHistoryPage(),
+        Routes.nasaPhotosScreenRoute: (context) => _getNasaPhotosPage(),
       },
       initialRoute: Routes.initialRoute,
     );
@@ -52,9 +55,19 @@ class MyApp extends StatelessWidget {
       child: const CalculatorHistoryPage()
     );
   }
+
+  Widget _getNasaPhotosPage() {
+    return BlocProvider<NasaPhotosScreenCubit>(
+      create: (context) => NasaPhotosScreenCubit(
+        photosService: _di.getNasaPhotosService()
+      ),
+      child: const NasaPhotosPage()
+    );
+  }
 }
 
 class Routes {
   static const initialRoute = '/';
   static const calculatorHistoryScreenRoute = '/history';
+  static const nasaPhotosScreenRoute = '/nasa-photos';
 }

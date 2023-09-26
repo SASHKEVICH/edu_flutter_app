@@ -30,18 +30,23 @@ class _NasaPhotosPageState extends State<NasaPhotosPage> {
             _photos += state.photos;
             return NasaPhotosScreen(photos: _photos);
           } else if (state is ErrorState) {
-            return Center(
-              child: Column(
-                children: [
-                  const Text("Something went wrong"),
-                  Text(state.errorMessage),
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<NasaPhotosScreenCubit>(context).loadPhotos();
-                    }, 
-                    child: const Text("Try again")
-                  )
-                ]
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.redAccent[100],
+              ),
+              body: Center(
+                child: Column(
+                  children: [
+                    const Text("Something went wrong"),
+                    Text(state.errorMessage),
+                    ElevatedButton(
+                      onPressed: () {
+                        BlocProvider.of<NasaPhotosScreenCubit>(context).loadPhotos();
+                      }, 
+                      child: const Text("Try again")
+                    )
+                  ]
+                ),
               ),
             );
           } else { 
