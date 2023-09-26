@@ -1,8 +1,9 @@
-import 'package:edu_flutter_app/domain/models/nasa/nasa_photo.dart';
-import 'package:edu_flutter_app/scenes/nasa_photos/cubit/nasa_photos_screen_cubit.dart';
-import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photo_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:edu_flutter_app/domain/models/nasa/nasa_photo.dart';
+import 'package:edu_flutter_app/scenes/nasa_photos/cubit/nasa_photos_screen_cubit.dart';
+import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photos_screen/nasa_photo_list_item.dart';
 
 class NasaPhotosScreen extends StatefulWidget {
   const NasaPhotosScreen({super.key, required this.photos});
@@ -41,12 +42,19 @@ class _NasaPhotosScreenState extends State<NasaPhotosScreen> {
             );
           }
 
-          return Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: NasaPhotoListItem(photoItem: item,)
+          return GestureDetector(
+            onTap: () => _didTapListItem(index),
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: NasaPhotoListItem(photoItem: item,)
+            ),
           );
         }
       ),
     );
+  }
+
+  void _didTapListItem(int index) {
+    print(index);
   }
 }

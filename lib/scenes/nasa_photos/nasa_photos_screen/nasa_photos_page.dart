@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:edu_flutter_app/scenes/nasa_photos/cubit/nasa_photos_screen_cubit.dart';
 import 'package:edu_flutter_app/scenes/nasa_photos/cubit/nasa_photos_screen_state.dart';
-import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photos_screen.dart';
+import 'package:edu_flutter_app/scenes/nasa_photos/nasa_photos_screen/nasa_photos_screen.dart';
 import 'package:edu_flutter_app/domain/models/nasa/nasa_photo.dart';
 
 class NasaPhotosPage extends StatefulWidget {
