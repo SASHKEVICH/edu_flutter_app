@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:edu_flutter_app/domain/di.dart';
 import 'package:edu_flutter_app/scenes/calculator/calculator_page.dart';
@@ -7,7 +8,8 @@ import 'package:edu_flutter_app/scenes/calculator/cubit/calculator_screen_cubit.
 import 'package:edu_flutter_app/scenes/calculator_history/calculator_history_page.dart';
 import 'package:edu_flutter_app/scenes/calculator_history/cubit/calculator_history_screen_cubit.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load(fileName: ".env");
   runApp(MyApp());
 }
 
