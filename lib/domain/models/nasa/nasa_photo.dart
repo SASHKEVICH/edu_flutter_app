@@ -1,4 +1,5 @@
 import 'package:edu_flutter_app/domain/models/nasa/camera.dart';
+import 'package:edu_flutter_app/domain/models/nasa/rover.dart';
 
 class NasaPhoto {
   int? id;
@@ -6,8 +7,15 @@ class NasaPhoto {
   Camera? camera;
   String? imgSrc;
   String? earthDate;
+  Rover? rover;
 
-  NasaPhoto({this.id, this.sol, this.camera, this.imgSrc, this.earthDate});
+  NasaPhoto(
+      {this.id,
+      this.sol,
+      this.camera,
+      this.imgSrc,
+      this.earthDate,
+      this.rover});
 
   NasaPhoto.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -16,6 +24,7 @@ class NasaPhoto {
         json['camera'] != null ? new Camera.fromJson(json['camera']) : null;
     imgSrc = json['img_src'];
     earthDate = json['earth_date'];
+    rover = json['rover'] != null ? new Rover.fromJson(json['rover']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -27,6 +36,9 @@ class NasaPhoto {
     }
     data['img_src'] = this.imgSrc;
     data['earth_date'] = this.earthDate;
+    if (this.rover != null) {
+      data['rover'] = this.rover!.toJson();
+    }
     return data;
   }
 }
